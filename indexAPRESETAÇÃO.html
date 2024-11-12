@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agradecimento pela Atenção</title>
+    <style>
+        /* Estilos de Fundo e Layout */
+        body {
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #FFD700, #1E90FF);
+            color: #333;
+            text-align: center;
+        }
+
+        /* Estilos do Título */
+        h1 {
+            font-size: 2.5em;
+            color: #FFFFFF;
+            text-shadow: 2px 2px #FFD700;
+            margin-top: 20px;
+        }
+
+        /* Estilos da Imagem */
+        .tech-image {
+            width: 200px;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos do Parágrafo */
+        p {
+            font-size: 1.2em;
+            color: #f5f5f5;
+            max-width: 600px;
+        }
+
+        /* Estilos do Container de Botões */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Botões */
+        .btn {
+            padding: 15px;
+            font-size: 1.1em;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cores dos Botões */
+        .btn:nth-child(1) { background-color: #8B4513; }
+        .btn:nth-child(2) { background-color: #DA70D6; }
+        .btn:nth-child(3) { background-color: #87CEFA; }
+
+        /* Efeito Hover dos Botões */
+        .btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        /* Estilo da Mensagem */
+        #message {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #FFFFFF;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Imagem Representando Tecnologia -->
+    <img src="https://cdn-icons-png.flaticon.com/512/10528/10528228.png" alt="Imagem de Tecnologia" class="tech-image">
+
+    <h1>Obrigado pela atenção!</h1>
+
+    <!-- Frase engraçada sobre tecnologia -->
+    <p id="funny-quote"></p>
+
+    <p>Agradecemos a todos pela atenção durante a apresentação do nosso projeto! Clique em um dos botões abaixo para descobrir sua surpresa!</p>
+
+    <div class="buttons-container">
+        <!-- Botões interativos com mensagens definidas de forma aleatória -->
+        <button class="btn" id="btn1" onclick="showMessage(aleatorio[0])">Clique aqui</button>
+        <button class="btn" id="btn2" onclick="showMessage(aleatorio[1])">Ou aqui</button>
+        <button class="btn" id="btn3" onclick="showMessage(aleatorio[2])">Talvez aqui</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
+        // Função que embaralha as mensagens para exibição aleatória ao carregar a página
+        const premios = ['chocolate', 'doce', 'sem-premio'];
+        const aleatorio = premios.sort(() => Math.random() - 0.5);
+
+        // Função para mostrar a mensagem baseada no prêmio sorteado
+        function showMessage(premio) {
+            let message;
+            if (premio === 'chocolate') {
+                message = "Parabéns! Você ganhou um delicioso prêmio de chocolate! 🍫";
+            } else if (premio === 'doce') {
+                message = "Ótimo! Você ganhou um saboroso doce! 🍬";
+            } else {
+                message = "Não foi dessa vez... mas obrigado por participar! 😊";
+            }
+            document.getElementById('message').innerText = message;
+        }
+
+        // Frases engraçadas sobre tecnologia
+        const quotes = [
+            "Programadores não falham, eles apenas encontram maneiras de testar a paciência do computador!",
+            "Sempre reinicie. Se não resolver, o problema é com o usuário!",
+            "99% do meu dia é lidar com problemas que só surgem porque alguém fez uma 'pequena mudança' no sistema.",
+            "Escrever código é fácil. O difícil é explicar por que ele não funciona!",
+            "Se não quebrou ainda, é porque você não encontrou o bug escondido!",
+            "Desenvolvedores: transformando café em linhas de código desde sempre!",
+            "A tecnologia é ótima, até ela parar de funcionar bem no meio de uma reunião importante."
+        ];
+
+        // Seleciona uma frase aleatória
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('funny-quote').innerText = randomQuote;
+    </script>
+
+</body>
+</html>
